@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    background: url("soil.png") no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: none;
+}
+
+.score {
+    font-size: 3.5em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    color: #ffd700; 
+}
+
+.board {
+    z-index: 1;
+    height: 600px;
+    width: 600px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 3px solid #fff;
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.hole {
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: inset 0 10px 0 7px rgb(53, 21, 6),
+                inset 0 20px 20px 15px rgba(0, 0, 0, 0.3),
+                0 0 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.hole:hover {
+    transform: scale(1.05);
+}
+
+.hole .mole {
+    width: 70%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    animation: rise 0.3s ease-out;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateX(-50%) translateY(100%);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.cursor {
+    height: 110px;
+    width: 100px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background-image: url('hammer.png');
+    background-size: 100% 100%;
+    transform: translate(-20%, -20%);
+    transition: transform 0.1s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.cursor.active {
+    transform: translate(-20%, -20%) rotate(-45deg);
+}
+#gameOverScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    display: none; /* Hidden until game ends */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999;
+}
+
+.game-over-content {
+    background-color: #444;
+    padding: 2rem 3rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 20px #fff;
+}
+
+#restartBtn {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #ffd700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}

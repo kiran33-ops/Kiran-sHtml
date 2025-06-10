@@ -54,7 +54,7 @@ body {
     transform: scale(1.05);
 }
 .hole .mole {
-    width: 70%;
+    width: 60%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);

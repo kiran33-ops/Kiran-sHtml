@@ -39,13 +39,13 @@ function spawnCharacter() {
         setTimeout(() => {
             if (hole.contains(img)) hole.removeChild(img);
             if (gameActive) spawnCharacter();
-        }, 375);
+        }, 500);
     });
     hole.appendChild(img);
     const removeTimer = setTimeout(() => {
         if (hole.contains(img)) hole.removeChild(img);
         if (gameActive) spawnCharacter();
-    }, 750);
+    }, 850);
 }
 function startTimer() {
     timeEl.textContent = timeLeft;
